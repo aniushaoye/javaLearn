@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry location="src/main/resources/mybatis-generator/mysql-connector-java-5.1.25-bin.jar"/>
+    <context id="MysqlContext" targetRuntime="MyBatis3" defaultModelType="flat">
+        <!--<property name="beginningDelimiter" value="`"/>-->
+        <!--<property name="endingDelimiter" value="`"/>-->
+        <plugin type="cn.aniu.utils.PaginationPlugin"/>
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/yyp_test"
+                        userId="root"
+                        password="Zt123456">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="cn.aniu.domain" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="cn.aniu.mapper"  targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.aniu.dao"  targetProject="src/main/java"/>
+
+        <table tableName="user" domainObjectName="User" enableCountByExample="true" modelType=""
+        enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
+        selectByExampleQueryId="true"/>
+    </context>
+</generatorConfiguration>

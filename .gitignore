@@ -1,0 +1,7 @@
+# ignore .idea file
+
+.idea
+target
+*.iml
+*.MF
+.project
